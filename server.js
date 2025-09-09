@@ -20,7 +20,6 @@ app.post("/tasks", (request, response) => {
     if ( !text ) {
         return response.status(400).json({ error: "Text is required" });
     }
-});
 
 const newTask = {
     id: tasks.length + 1,
@@ -29,6 +28,7 @@ const newTask = {
 
 tasks.push(newTask);
 response.status(201).json(newTask);
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
