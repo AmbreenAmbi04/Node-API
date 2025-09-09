@@ -1,8 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const PORT = 5000;
 
 app.use(express.json());
+app.use(cors());
 
 let tasks = [
     { id: 1, text: "Initialize an express server" },
@@ -11,11 +13,11 @@ let tasks = [
     { id: 4, text: "Fry the donuts" },
 ];
 
-app.get("/tasks", (request, response) => {
+app.get("/api/tasks", (request, response) => {
     response.json(tasks);
 });
 
-app.post("/tasks", (request, response) => {
+app.post("/api/tasks", (request, response) => {
     const { text } = request.body;
     if ( !text ) {
         return response.status(400).json({ error: "Text is required" });
