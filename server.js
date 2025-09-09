@@ -9,4 +9,15 @@ let tasks = [
     { id: 2, text: "Knead the dough" },
     { id: 3, text: "Complete the tasks" },
     { id: 4, text: "Fry the donuts" },
-]
+];
+
+app.get("/tasks", (request, response) => {
+    response.json(tasks);
+});
+
+app.post("/tasks", (request, response) => {
+    const { text } = request.body;
+    if ( !text ) {
+        return response.status(400).json({ error: "Text is required" });
+    }
+})
