@@ -43,6 +43,6 @@ This project demonstrates how to:
 
 ### **Default ports:
 
-Backend → 5000
+- Backend → 5000
 
-Frontend → 3000
+- Frontend → 3000
