@@ -3,8 +3,8 @@ const cors = require("cors");
 const app = express();
 const PORT = 5000;
 
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
-app.use(cors());
 
 let tasks = [
     { id: 1, text: "Initialize an express server" },
@@ -13,7 +13,10 @@ let tasks = [
     { id: 4, text: "Fry the donuts" },
 ];
 
+console.log("Initial tasks:", tasks);
+
 app.get("/api/tasks", (request, response) => {
+    console.log("✅ /api/tasks was called");
     response.json(tasks);
 });
 

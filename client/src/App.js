@@ -2,7 +2,6 @@ import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
