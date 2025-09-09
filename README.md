@@ -41,7 +41,7 @@ This project demonstrates how to:
 
 ---
 
-### **Default ports:
+### **Default ports:**
 
 - Backend → 5000
 
