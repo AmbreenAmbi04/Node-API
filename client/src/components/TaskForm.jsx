@@ -10,7 +10,7 @@ const TaskForm = ({ onTaskAdded }) => {
     if (!text.trim()) { return };
 
     try {
-      const response = await fetch("http://localhost:5000/api/tasks", {
+      const response = await fetch("http://localhost:5000/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -46,11 +46,13 @@ const TaskForm = ({ onTaskAdded }) => {
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
+          className= "form-control w-50 ms-3"
         />
         <motion.button
           type="submit"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          className= "btn btn-success mt-3 ms-3"
         >
           Add Task
         </motion.button>
