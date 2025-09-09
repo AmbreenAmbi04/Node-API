@@ -1,13 +1,13 @@
 import TaskList from './components/TaskList';
-import { BrowserRoute, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
 <>
-  <BrowserRoute>
+  <BrowserRouter>
     <Routes>
       <Route path='/' element={<TaskList />} />
     </Routes>
-  </BrowserRoute>
+  </BrowserRouter>
 </>
 }
 
