@@ -3,11 +3,14 @@ import { useState } from "react";
 
 const TaskForm = ({ onTaskAdded }) => {
   const [text, setText] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!text.trim()) { return };
+    if (!text.trim()) { 
+        setError("Warning! Please enter a task.");
+        return };
 
     try {
       const response = await fetch("http://localhost:5000/tasks", {
@@ -25,6 +28,7 @@ const TaskForm = ({ onTaskAdded }) => {
       const newTask = await response.json();
       onTaskAdded(newTask);
       setText("");
+      setError("");
     } catch (error) {
       console.error("Error adding task:", error);
     }
@@ -57,6 +61,19 @@ const TaskForm = ({ onTaskAdded }) => {
           Add Task
         </motion.button>
       </motion.form>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className= "ms-3"
+      >
+        {error && (
+            <motion.h3
+            className="text-danger mt-2 ms-3"
+            >{error}</motion.h3>
+        )}
+      </motion.div>
     </motion.div>
   );
 };
